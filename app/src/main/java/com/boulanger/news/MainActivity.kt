@@ -40,9 +40,7 @@ class MainActivity : AppCompatActivity() {
         var mListView = findViewById<ListView>(R.id.userlist)
         arrayAdapter = HeadlineAdapter(this,
             R.layout.headline_list, mList)
-        mListView.setOnItemClickListener {parent, view, position, id ->
 
-        }
 
 
         mListView.adapter = arrayAdapter

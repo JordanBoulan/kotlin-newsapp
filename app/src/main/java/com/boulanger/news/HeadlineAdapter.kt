@@ -2,11 +2,15 @@ package com.boulanger.news
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
+
 
 class HeadlineAdapter (var activity: Activity, var mResource:Int, var mObjects:ArrayList<Item>) : ArrayAdapter<Item>(activity, mResource, mObjects){
 
@@ -31,6 +35,11 @@ class HeadlineAdapter (var activity: Activity, var mResource:Int, var mObjects:A
         }
         var item = mObjects[position]
         viewHolder.text?.text = item.headline
+        viewHolder.text?.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse(item.url))
+                activity.startActivity(browserIntent)
+        }
 
 
         return view as View
