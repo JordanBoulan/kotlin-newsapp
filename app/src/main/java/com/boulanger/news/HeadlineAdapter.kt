@@ -22,7 +22,7 @@ class HeadlineAdapter (var activity: Activity, var mResource:Int, var mObjects:A
         val viewHolder: ViewHolder
         if (convertView == null) {
             val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.activity_main, null)
+            view = inflater.inflate(R.layout.headline_list, null)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
         } else {

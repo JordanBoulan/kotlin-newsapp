@@ -20,15 +20,15 @@ class MainActivity : AppCompatActivity() {
 
         var data = Gson().fromJson(reader, JsonParse::class.java)
 
-        var arrayAdapter: ArrayAdapter<String>
-        var mList = ArrayList<String>()
+        var arrayAdapter : HeadlineAdapter
+        var mList = ArrayList<Item>()
         data.data.iterator().forEach { it ->
             if (it.item != null && it.item.headline != null)
-                mList.add(it.item.headline)
+                mList.add(it.item)
             if (it.items != null) {
                 it.items.iterator().forEach { item ->
                     if (item != null && item.headline != null)
-                    mList.add(item.headline)
+                    mList.add(item)
                 }
 
             }
@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
 
         // access the listView from xml file
         var mListView = findViewById<ListView>(R.id.userlist)
-        arrayAdapter = ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, mList)
+        arrayAdapter = HeadlineAdapter(this,
+            R.layout.headline_list, mList)
         mListView.setOnItemClickListener {parent, view, position, id ->
 
         }
