@@ -4,10 +4,10 @@ import android.app.Activity
 import android.os.Bundle
 
 
-class ImageActivity : Activity() {
+class VideoActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.images)
+        setContentView(R.layout.videos)
     }
 }

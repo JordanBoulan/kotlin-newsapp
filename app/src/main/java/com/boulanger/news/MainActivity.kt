@@ -55,8 +55,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if (id == R.id.menu_images) { // do something
+        if (id == R.id.menu_images) {
             val intent = Intent(this, ImageActivity::class.java)
+            startActivity(intent)
+        }
+        if (id == R.id.menu_videos) {
+            val intent = Intent(this, VideoActivity::class.java)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)

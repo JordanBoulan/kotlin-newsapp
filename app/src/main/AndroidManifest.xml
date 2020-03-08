@@ -21,6 +21,10 @@
             android:label="images">
 
         </activity>
+        <activity android:name=".VideoActivity"
+            android:label="videos">
+
+        </activity>
     </application>
 
 </manifest>
