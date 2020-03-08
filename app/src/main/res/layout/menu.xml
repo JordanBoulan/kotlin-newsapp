@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="30dp"
+    android:layout_height="20dp">
+    <item
+        android:id="@+id/menu_images"
+        android:orderInCategory="100"
+        android:title="Images"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_videos"
+        android:orderInCategory="200"
+        android:title="Videos"
+        app:showAsAction="never" />
+</menu>

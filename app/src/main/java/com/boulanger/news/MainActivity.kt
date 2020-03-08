@@ -1,14 +1,15 @@
 package com.boulanger.news
 
-import androidx.appcompat.app.AppCompatActivity
+
+import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import java.io.FileReader
 import java.io.InputStreamReader
-import java.io.Reader
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,5 +46,19 @@ class MainActivity : AppCompatActivity() {
 
         mListView.adapter = arrayAdapter
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        getMenuInflater().inflate(R.layout.menu, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.menu_images) { // do something
+            val intent = Intent(this, ImageActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
