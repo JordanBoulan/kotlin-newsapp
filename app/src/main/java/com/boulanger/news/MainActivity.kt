@@ -35,11 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         var mList = ArrayList<Item>()
         data.data.iterator().forEach { it ->
-            if (it.item != null && it.item.headline != null)
+            if (it.item != null)
                 mList.add(it.item)
             if (it.items != null) {
                 it.items.iterator().forEach { item ->
-                    if (item != null && item.headline != null)
+                    if (item != null)
                         mList.add(item)
                 }
 
