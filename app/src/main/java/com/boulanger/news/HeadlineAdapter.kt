@@ -43,15 +43,15 @@ class HeadlineAdapter (var activity: Activity, var mResource:Int, var mObjects:A
         }
 
         override fun doInBackground(vararg urls: String?): Bitmap? {
-            val urldisplay = urls[0]
-            var mIcon11: Bitmap? = null
+            val url = urls[0]
+            var mImage: Bitmap? = null
             try {
-                val `in`: InputStream = URL(urldisplay).openStream()
-                mIcon11 = BitmapFactory.decodeStream(`in`)
+                val `in`: InputStream = URL(url).openStream()
+                mImage = BitmapFactory.decodeStream(`in`)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-            return mIcon11
+            return mImage
         }
 
     }
