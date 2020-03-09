@@ -16,12 +16,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        var mListView = findViewById<ListView>(R.id.userlist)
+        var arrayAdapter : HeadlineAdapter
+        var mList = getData()
+        arrayAdapter = HeadlineAdapter(this,
+            R.layout.headline_list, mList)
+        mListView.adapter = arrayAdapter
+
+    }
+    fun getData() : ArrayList<Item> {
         var assetManager = assets
         var reader = InputStreamReader(assetManager.open("news.json"))
 
         var data = Gson().fromJson(reader, JsonParse::class.java)
 
-        var arrayAdapter : HeadlineAdapter
+
         var mList = ArrayList<Item>()
         data.data.iterator().forEach { it ->
             if (it.item != null && it.item.headline != null)
@@ -29,22 +40,13 @@ class MainActivity : AppCompatActivity() {
             if (it.items != null) {
                 it.items.iterator().forEach { item ->
                     if (item != null && item.headline != null)
-                    mList.add(item)
+                        mList.add(item)
                 }
 
             }
 
         }
-
-
-        // access the listView from xml file
-        var mListView = findViewById<ListView>(R.id.userlist)
-        arrayAdapter = HeadlineAdapter(this,
-            R.layout.headline_list, mList)
-
-
-
-        mListView.adapter = arrayAdapter
+        return mList;
 
     }
 
