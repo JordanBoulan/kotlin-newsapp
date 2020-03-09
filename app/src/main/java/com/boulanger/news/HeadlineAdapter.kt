@@ -82,29 +82,11 @@ class HeadlineAdapter (var activity: Activity, var mResource:Int, var mObjects:A
             viewHolder = view.tag as ViewHolder
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         viewHolder.linear?.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse(item.url))
                 activity.startActivity(browserIntent)
         }
-
-
         return view as View
 
     }
